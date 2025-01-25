@@ -1,0 +1,6 @@
+This bug occurs when using Tailwind CSS with complex responsive design layouts. The issue stems from Tailwind's utility-first approach, where developers often compose classes to create intricate styles.  When a component has multiple responsive directives such as `md:`, `lg:`, and `xl:`, conflicts might arise.  Tailwind will apply styles based on the order in which classes are listed and the screen size. The final rendered style may not reflect the developer's intended behavior if the order of classes is not carefully considered. For example:
+```html
+<div class="md:bg-red-500 lg:bg-blue-500 xl:bg-green-500">
+</div>
+```
+On screens larger than `lg`, Tailwind will apply `bg-blue-500` overwriting `md:bg-red-500`. This can lead to unexpected visual discrepancies that are difficult to trace and debug due to the combination of responsive modifiers.
